@@ -83,50 +83,9 @@
       );
   }
 
-  .hero-glow {
-    background:
-      radial-gradient(ellipse 90% 70% at 50% -20%, rgba(205, 255, 0, 0.18), transparent 60%),
-      radial-gradient(ellipse 50% 30% at 20% 110%, rgba(205, 255, 0, 0.05), transparent 60%),
-      radial-gradient(ellipse 50% 30% at 80% 110%, rgba(205, 255, 0, 0.05), transparent 60%);
-  }
-
   .kuest-glow {
     box-shadow: 0 0 0 1px rgba(205, 255, 0, 0.15),
       0 10px 40px -10px rgba(205, 255, 0, 0.35);
-  }
-
-  .kuest-glow-lg {
-    box-shadow: 0 0 0 1px rgba(205, 255, 0, 0.18),
-      0 20px 80px -20px rgba(205, 255, 0, 0.5);
-  }
-
-  .card-hover {
-    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
-      border-color 200ms ease, background-color 200ms ease,
-      box-shadow 300ms ease;
-  }
-  .card-hover:hover {
-    transform: translateY(-2px);
-  }
-
-  .noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-  }
-
-  .conic-glow {
-    background: conic-gradient(
-      from 180deg at 50% 50%,
-      transparent 0deg,
-      rgba(205, 255, 0, 0.2) 60deg,
-      transparent 180deg,
-      rgba(205, 255, 0, 0.12) 270deg,
-      transparent 360deg
-    );
-  }
-
-  .mask-fade-y {
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
   }
 
   .grid-bg {
