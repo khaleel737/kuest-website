@@ -8,20 +8,20 @@ export function Ecosystem() {
   return (
     <section
       id="ecosystem"
-      className="relative py-28 md:py-40 border-t border-neutral-900"
+      className="relative py-20 md:py-28 border-t border-neutral-900"
     >
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-20">
-        <header className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
+      <div className="mx-auto max-w-[1400px] px-5 lg:px-20">
+        <header className="grid grid-cols-12 gap-6 mb-10 md:mb-14">
           <div className="col-span-12 md:col-span-3">
-            <div className="section-mark mb-4">03 — Ecosystem</div>
+            <div className="section-mark mb-3">03 — Ecosystem</div>
             <div className="eyebrow text-neutral-500">Four sides</div>
           </div>
           <div className="col-span-12 md:col-span-9">
-            <Reveal as="h2" className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.98] tracking-[-0.02em] text-white text-balance">
+            <Reveal as="h2" className="font-display text-[36px] md:text-[48px] lg:text-[58px] leading-[1] tracking-[-0.02em] text-white text-balance">
               Built for <span className="italic text-[#CDFF00]">everyone</span>{' '}
               at the table.
             </Reveal>
-            <Reveal delay={0.15} as="p" className="mt-6 max-w-2xl text-base text-neutral-400 leading-relaxed">
+            <Reveal delay={0.12} as="p" className="mt-4 max-w-2xl text-[14.5px] md:text-[15.5px] text-neutral-400 leading-relaxed">
               A protocol only works when every participant wins. Kuest is designed
               four ways — so creators, market makers, exchanges, and liquidity
               providers can all plug in without fighting for the same slice.
@@ -60,17 +60,17 @@ export function Ecosystem() {
                 )
               )}
             </div>
-            <dl className="mt-8 grid grid-cols-3 gap-6 pt-6 border-t border-neutral-900">
+            <dl className="mt-6 grid grid-cols-3 gap-6 pt-5 border-t border-neutral-900">
               {[
                 { k: '0.5–3%', v: 'fee to you' },
                 { k: '0 days', v: 'settlement' },
                 { k: '<15 min', v: 'to launch' }
               ].map((s) => (
                 <div key={s.v}>
-                  <div className="font-display text-3xl md:text-4xl text-white tabular">
+                  <div className="font-display text-2xl md:text-3xl text-white tabular">
                     {s.k}
                   </div>
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-neutral-500 mt-1">
+                  <div className="text-[10.5px] font-mono uppercase tracking-wider text-neutral-500 mt-1">
                     {s.v}
                   </div>
                 </div>
@@ -203,15 +203,15 @@ export function Ecosystem() {
           </PersonaBlock>
         </div>
 
-        <div className="mt-16 md:mt-24 grid grid-cols-12 gap-6 items-end">
+        <div className="mt-12 md:mt-16 grid grid-cols-12 gap-6 items-end">
           <Reveal className="col-span-12 md:col-span-6">
-            <p className="font-display text-2xl md:text-3xl leading-snug text-neutral-300">
+            <p className="font-display text-xl md:text-2xl leading-snug text-neutral-300">
               The sides don&apos;t compete. They{' '}
               <span className="italic text-[#CDFF00]">compound.</span>
             </p>
           </Reveal>
-          <Reveal delay={0.15} className="col-span-12 md:col-span-6 md:text-right">
-            <p className="text-sm text-neutral-500 max-w-md md:ml-auto">
+          <Reveal delay={0.12} className="col-span-12 md:col-span-6 md:text-right">
+            <p className="text-[13.5px] text-neutral-500 max-w-md md:ml-auto">
               A trade on any Kuest site routes through the same book, hedges
               against the same liquidity, and pays every party — creator, maker,
               LP — in the same transaction.
@@ -245,21 +245,21 @@ function PersonaBlock({
   return (
     <Reveal
       delay={delay}
-      className={`group relative paper-card rounded-md p-6 md:p-8 hover:border-neutral-700 transition-colors ${className}`}
+      className={`group relative paper-card rounded-md p-5 md:p-6 hover:border-neutral-700 transition-colors ${className}`}
     >
-      <div className="flex items-baseline justify-between mb-5">
-        <div className="flex items-baseline gap-3">
-          <span className="font-display text-[32px] leading-none text-[#CDFF00]">
+      <div className="flex items-baseline justify-between mb-4">
+        <div className="flex items-baseline gap-2.5">
+          <span className="font-display text-[26px] leading-none text-[#CDFF00]">
             {number}
           </span>
           <span className="eyebrow">{tag}</span>
         </div>
         <ArrowUpRight className="h-4 w-4 text-neutral-600 group-hover:text-[#CDFF00] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
       </div>
-      <h3 className="font-display text-2xl md:text-3xl leading-[1.08] tracking-[-0.01em] text-white text-balance">
+      <h3 className="font-display text-xl md:text-[26px] leading-[1.1] tracking-[-0.01em] text-white text-balance">
         {title}
       </h3>
-      <p className={`mt-2 font-display italic text-base md:text-lg ${accent ? 'text-[#CDFF00]/80' : 'text-neutral-500'}`}>
+      <p className={`mt-2 font-display italic text-sm md:text-base ${accent ? 'text-[#CDFF00]/80' : 'text-neutral-500'}`}>
         {italic}
       </p>
       {children}

@@ -64,14 +64,14 @@ const STATS: Stat[] = [
 
 export function BigNumbers() {
   return (
-    <section className="relative py-28 md:py-40 border-t border-neutral-900">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-20">
-        <header className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
+    <section className="relative py-20 md:py-28 border-t border-neutral-900">
+      <div className="mx-auto max-w-[1400px] px-5 lg:px-20">
+        <header className="grid grid-cols-12 gap-6 mb-10 md:mb-14">
           <div className="col-span-12 md:col-span-3">
-            <div className="section-mark mb-4">05 — By the numbers</div>
+            <div className="section-mark mb-3">05 — By the numbers</div>
           </div>
           <div className="col-span-12 md:col-span-9">
-            <Reveal as="h2" className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.98] tracking-[-0.02em] text-white text-balance">
+            <Reveal as="h2" className="font-display text-[36px] md:text-[48px] lg:text-[58px] leading-[1] tracking-[-0.02em] text-white text-balance">
               A <span className="italic text-[#CDFF00]">new asset class</span>, on a
               protocol that learns fast.
             </Reveal>
@@ -101,19 +101,19 @@ function StatBlock({ stat, delay }: { stat: Stat; delay: number }) {
   return (
     <Reveal
       delay={delay}
-      className={`col-span-12 ${SPAN_CLASS[stat.span] || 'md:col-span-4'} paper-card rounded-md p-6 md:p-8 group hover:border-neutral-700 transition-colors`}
+      className={`col-span-12 ${SPAN_CLASS[stat.span] || 'md:col-span-4'} paper-card rounded-md p-5 md:p-6 group hover:border-neutral-700 transition-colors`}
     >
-      <div className="flex items-baseline justify-between mb-6">
+      <div className="flex items-baseline justify-between mb-4">
         <span className="eyebrow">{stat.n}</span>
         <span className="h-px w-8 bg-neutral-800" />
       </div>
-      <div className="font-display text-[64px] md:text-[84px] lg:text-[100px] leading-[0.9] tracking-[-0.03em] text-white tabular">
+      <div className="font-display text-[48px] md:text-[60px] lg:text-[72px] leading-[0.9] tracking-[-0.03em] text-white tabular">
         <span className="text-neutral-500">{stat.prefix}</span>
         <Count to={stat.to} decimals={stat.decimals || 0} />
         <span className="text-[#CDFF00]">{stat.suffix}</span>
       </div>
-      <div className="mt-6 text-white font-medium">{stat.label}</div>
-      <div className="mt-1.5 text-sm text-neutral-500 leading-relaxed max-w-sm">
+      <div className="mt-4 text-white font-medium text-[14.5px]">{stat.label}</div>
+      <div className="mt-1 text-[13px] text-neutral-500 leading-relaxed max-w-sm">
         {stat.sub}
       </div>
     </Reveal>

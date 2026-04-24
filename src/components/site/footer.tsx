@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Github, Twitter, MessageCircle } from 'lucide-react'
-import { Logo } from './logo'
+import { LogoMark } from './logo'
 
 const COLUMNS: { label: string; items: { label: string; href: string }[] }[] = [
   {
@@ -49,14 +49,14 @@ export function Footer() {
   return (
     <footer className="relative border-t border-neutral-900 bg-neutral-950">
       {/* Masthead-style top rule */}
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-20">
+      <div className="mx-auto max-w-[1400px] px-5 lg:px-20">
         <div className="dotted-line h-[1px]" />
       </div>
 
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-20 py-14 grid grid-cols-12 gap-8">
+      <div className="mx-auto max-w-[1400px] px-5 lg:px-20 py-12 grid grid-cols-12 gap-8">
         <div className="col-span-12 md:col-span-4 space-y-5">
           <div className="flex items-center gap-2">
-            <Logo />
+            <LogoMark size={22} />
             <span className="font-display text-[22px] leading-none text-white">
               kuest
             </span>
@@ -107,7 +107,7 @@ export function Footer() {
 
       {/* Colophon strip */}
       <div className="border-t border-neutral-900">
-        <div className="mx-auto max-w-[1440px] px-6 lg:px-20 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[11px] font-mono text-neutral-500">
+        <div className="mx-auto max-w-[1400px] px-5 lg:px-20 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[11px] font-mono text-neutral-500">
           <div className="flex items-center gap-3">
             <span>© {new Date().getFullYear()} Kuest Labs</span>
             <span className="text-neutral-700">·</span>

@@ -75,31 +75,31 @@ const TIERS: Tier[] = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="relative py-28 md:py-40 border-t border-neutral-900">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-20">
-        <header className="grid grid-cols-12 gap-6 mb-16 md:mb-20 items-end">
+    <section id="pricing" className="relative py-20 md:py-28 border-t border-neutral-900">
+      <div className="mx-auto max-w-[1400px] px-5 lg:px-20">
+        <header className="grid grid-cols-12 gap-6 mb-10 md:mb-12 items-end">
           <div className="col-span-12 md:col-span-3">
-            <div className="section-mark mb-4">06 — Pricing</div>
+            <div className="section-mark mb-3">06 — Pricing</div>
           </div>
           <div className="col-span-12 md:col-span-9">
-            <Reveal as="h2" className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.98] tracking-[-0.02em] text-white text-balance">
+            <Reveal as="h2" className="font-display text-[36px] md:text-[48px] lg:text-[58px] leading-[1] tracking-[-0.02em] text-white text-balance">
               Pricing, <span className="italic text-[#CDFF00]">with intent.</span>
             </Reveal>
-            <Reveal delay={0.15} as="p" className="mt-6 max-w-xl text-base text-neutral-400 leading-relaxed">
+            <Reveal delay={0.12} as="p" className="mt-4 max-w-xl text-[14.5px] md:text-[15.5px] text-neutral-400 leading-relaxed">
               Free to launch. Pay as you scale. Negotiate when you&apos;re a venue.
               The take drops as your volume grows.
             </Reveal>
           </div>
         </header>
 
-        <div className="grid grid-cols-12 gap-4 md:gap-6">
+        <div className="grid grid-cols-12 gap-4 md:gap-5">
           {TIERS.map((t, i) => (
-            <TierCard key={t.n} tier={t} delay={i * 0.1} />
+            <TierCard key={t.n} tier={t} delay={i * 0.08} />
           ))}
         </div>
 
-        <Reveal delay={0.1} className="mt-10 text-center">
-          <p className="text-xs font-mono uppercase tracking-widest text-neutral-600">
+        <Reveal delay={0.1} className="mt-8 text-center">
+          <p className="text-[10.5px] font-mono uppercase tracking-widest text-neutral-600">
             Seed-stage pricing · subject to change before mainnet
           </p>
         </Reveal>
@@ -112,47 +112,47 @@ function TierCard({ tier, delay }: { tier: Tier; delay: number }) {
   return (
     <Reveal
       delay={delay}
-      className={`col-span-12 md:col-span-4 relative rounded-md border p-6 md:p-8 ${
+      className={`col-span-12 md:col-span-4 relative rounded-md border p-5 md:p-6 ${
         tier.feature
           ? 'border-[#CDFF00]/40 bg-gradient-to-b from-[#CDFF00]/5 to-transparent'
           : 'paper-card'
       }`}
     >
       {tier.feature && (
-        <div className="absolute -top-3 left-6 inline-flex items-center gap-1.5 rounded-full bg-[#CDFF00] px-3 py-1 text-[10px] font-mono uppercase tracking-wider font-semibold text-neutral-950">
+        <div className="absolute -top-2.5 left-5 inline-flex items-center gap-1.5 rounded-full bg-[#CDFF00] px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider font-semibold text-neutral-950">
           <span className="h-1 w-1 rounded-full bg-neutral-950" />
           Most picked
         </div>
       )}
 
-      <div className="flex items-baseline justify-between mb-6">
+      <div className="flex items-baseline justify-between mb-4">
         <span className="eyebrow">{tier.n}</span>
-        <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
+        <span className="text-[10.5px] font-mono uppercase tracking-wider text-neutral-500">
           {tier.name}
         </span>
       </div>
 
-      <div className="mb-2 font-display italic text-lg text-neutral-400">
+      <div className="mb-1.5 font-display italic text-base text-neutral-400">
         {tier.italic}
       </div>
-      <div className="flex items-baseline gap-2 mb-5">
-        <span className="font-display text-[72px] leading-none text-white tabular">
+      <div className="flex items-baseline gap-2 mb-4">
+        <span className="font-display text-[52px] md:text-[58px] leading-none text-white tabular">
           {tier.price}
         </span>
-        <span className="text-sm font-mono text-neutral-500">
+        <span className="text-[13px] font-mono text-neutral-500">
           {tier.priceSuffix}
         </span>
       </div>
 
-      <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+      <p className="text-[13.5px] text-neutral-400 leading-relaxed mb-5">
         {tier.body}
       </p>
 
-      <ul className="space-y-2.5 text-sm text-neutral-300 mb-8">
+      <ul className="space-y-2 text-[13px] text-neutral-300 mb-6">
         {tier.features.map((f) => (
-          <li key={f} className="flex items-baseline gap-2.5">
+          <li key={f} className="flex items-baseline gap-2">
             <Check
-              className={`h-3.5 w-3.5 flex-shrink-0 mt-0.5 ${
+              className={`h-3 w-3 flex-shrink-0 mt-0.5 ${
                 tier.feature ? 'text-[#CDFF00]' : 'text-neutral-600'
               }`}
             />
@@ -163,7 +163,7 @@ function TierCard({ tier, delay }: { tier: Tier; delay: number }) {
 
       <Link
         href="/#start"
-        className={`group inline-flex items-center justify-between gap-2 w-full rounded-sm px-4 py-3 text-[13px] font-semibold press transition-colors ${
+        className={`group inline-flex items-center justify-between gap-2 w-full rounded-sm px-4 py-2.5 text-[12.5px] font-semibold press transition-colors ${
           tier.feature
             ? 'bg-[#CDFF00] text-neutral-950 hover:bg-[#D4FF4A]'
             : 'border border-neutral-800 text-white hover:border-neutral-700 hover:bg-neutral-950/60'

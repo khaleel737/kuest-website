@@ -43,7 +43,8 @@ export function Reveal({
           }
         }
       },
-      { rootMargin: '-10% 0px' }
+      // Fire earlier — 15% before element fully enters viewport
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
     )
     io.observe(el)
     return () => io.disconnect()

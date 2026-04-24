@@ -16,7 +16,7 @@ const TICKERS = [
 ]
 
 const MARKETS = [
-  { q: 'Will Bitcoin close above $150,000 by Dec 31, 2026?', yes: 34, vol: '$2.8M', ch: 'crypto' },
+  { q: 'Will Bitcoin close above $150K by Dec 31, 2026?', yes: 34, vol: '$2.8M', ch: 'crypto' },
   { q: 'Will the Fed cut rates twice in Q2?', yes: 61, vol: '$1.4M', ch: 'macro' },
   { q: 'Chiefs to win Super Bowl LX?', yes: 48, vol: '$3.1M', ch: 'sports' }
 ]
@@ -32,35 +32,27 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[calc(100vh-96px)] pt-6 pb-20 md:pb-32 overflow-hidden"
+      className="relative pt-10 pb-16 md:pt-12 md:pb-20 overflow-hidden"
     >
       {/* Grid backdrop */}
-      <div className="absolute inset-0 editorial-grid opacity-60 pointer-events-none" />
-      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#CDFF00]/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 editorial-grid opacity-50 pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#CDFF00]/5 to-transparent pointer-events-none" />
 
-      {/* Rotated side label — signature element */}
-      <div className="hidden md:block absolute left-4 lg:left-8 top-40 text-neutral-500">
-        <div className="v-label flex flex-col items-center gap-4">
+      {/* Rotated side label — signature */}
+      <div className="hidden lg:block absolute left-4 top-32 text-neutral-500">
+        <div className="v-label flex flex-col items-center gap-3">
           <span>Protocol / 2026</span>
-          <span className="h-16 w-px bg-neutral-700" />
+          <span className="h-12 w-px bg-neutral-700" />
           <span className="text-[#CDFF00]">Seed stage</span>
         </div>
       </div>
 
-      {/* Right-side meta annotation */}
-      <div className="hidden lg:block absolute right-6 top-40 text-right text-neutral-500">
-        <div className="eyebrow mb-2">Editor&apos;s note</div>
-        <div className="font-display italic text-sm text-neutral-400 max-w-[180px] leading-snug">
-          A reference implementation of markets,<br />not a silo.
-        </div>
-      </div>
-
-      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-20 pt-16 md:pt-20">
-        {/* Top bar — section 00 marker + announcement pill */}
-        <div className="flex items-center justify-between mb-12 md:mb-16">
-          <div className="section-mark flex items-center gap-3">
+      <div className="relative mx-auto max-w-[1400px] px-5 lg:px-20">
+        {/* Top bar — section marker + announcement */}
+        <div className="flex items-center justify-between mb-8 md:mb-10">
+          <div className="section-mark flex items-center gap-2.5">
             <span>00</span>
-            <span className="w-8 h-px bg-neutral-700" />
+            <span className="w-6 h-px bg-neutral-700" />
             <span>Intro</span>
           </div>
           <a
@@ -74,121 +66,89 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="grid grid-cols-12 gap-6 md:gap-10">
+        <div className="grid grid-cols-12 gap-6 md:gap-10 items-center">
           {/* Left column — headline */}
-          <div className="col-span-12 lg:col-span-7 xl:col-span-8">
-            <h1 className="font-display text-[10.5vw] sm:text-[9.5vw] md:text-[8vw] lg:text-[6.6vw] xl:text-[108px] leading-[0.9] tracking-[-0.03em] text-white">
+          <div className="col-span-12 lg:col-span-7">
+            <h1 className="font-display text-[44px] sm:text-[56px] md:text-[64px] lg:text-[76px] xl:text-[88px] leading-[0.94] tracking-[-0.03em] text-white">
               <RevealLine delay={0}>
                 <span className="block">
                   The <span className="italic text-[#CDFF00]">Shopify,</span>
                 </span>
               </RevealLine>
-              <RevealLine delay={0.14}>
+              <RevealLine delay={0.12}>
                 <span className="block">but for prediction</span>
               </RevealLine>
-              <RevealLine delay={0.28}>
+              <RevealLine delay={0.24}>
                 <span className="block text-neutral-500">markets.</span>
               </RevealLine>
             </h1>
 
-            <div className="mt-10 md:mt-14 grid grid-cols-12 gap-6">
-              <div className="col-span-12 md:col-span-7 max-w-xl">
-                <p className="text-[17px] sm:text-[19px] leading-[1.5] text-neutral-300 text-pretty">
-                  Launch a branded prediction market on any topic in{' '}
-                  <span className="text-white font-medium">fifteen minutes.</span>{' '}
-                  Shared liquidity from day one. On-chain affiliate payouts. No
-                  templates, no gatekeepers — a protocol built for creators,
-                  market makers, and exchanges.
-                </p>
+            <p className="mt-6 md:mt-7 max-w-xl text-[15px] md:text-[17px] leading-[1.55] text-neutral-300 text-pretty fade-slide-up" style={{ animationDelay: '0.4s' }}>
+              Launch a branded prediction market in{' '}
+              <span className="text-white font-medium">fifteen minutes.</span>{' '}
+              Shared liquidity from day one. On-chain affiliate payouts. A
+              protocol built for creators, market makers, and exchanges.
+            </p>
 
-                <div className="mt-7 flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/#start"
-                    className="group inline-flex items-center gap-2.5 rounded-sm bg-[#CDFF00] px-5 py-3 text-[13px] font-semibold text-neutral-950 hover:bg-[#D4FF4A] press transition-colors"
-                  >
-                    Start building
-                    <span className="inline-block w-4 h-px bg-neutral-950 transition-all group-hover:w-6" />
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Link>
-                  <button
-                    onClick={copy}
-                    className="group inline-flex items-center gap-2 rounded-sm border border-neutral-800 bg-neutral-950/70 backdrop-blur px-3.5 py-3 text-[12px] font-mono text-neutral-300 hover:border-neutral-700 hover:text-white transition-colors"
-                  >
-                    <span className="text-neutral-600">$</span>
-                    <span>npx create-kuest my-market</span>
-                    {copied ? (
-                      <Check className="h-3.5 w-3.5 text-[#CDFF00]" />
-                    ) : (
-                      <Copy className="h-3.5 w-3.5 opacity-60 group-hover:opacity-100" />
-                    )}
-                  </button>
-                </div>
+            <div className="mt-6 flex flex-wrap items-center gap-2.5 fade-slide-up" style={{ animationDelay: '0.55s' }}>
+              <Link
+                href="/#start"
+                className="group inline-flex items-center gap-2 rounded-sm bg-[#CDFF00] px-4 py-2.5 text-[13px] font-semibold text-neutral-950 hover:bg-[#D4FF4A] press transition-colors"
+              >
+                Start building
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
+              <button
+                onClick={copy}
+                className="group inline-flex items-center gap-2 rounded-sm border border-neutral-800 bg-neutral-950/70 backdrop-blur px-3.5 py-2.5 text-[12px] font-mono text-neutral-300 hover:border-neutral-700 hover:text-white transition-colors"
+              >
+                <span className="text-neutral-600">$</span>
+                <span>npx create-kuest my-market</span>
+                {copied ? (
+                  <Check className="h-3.5 w-3.5 text-[#CDFF00]" />
+                ) : (
+                  <Copy className="h-3.5 w-3.5 opacity-60 group-hover:opacity-100" />
+                )}
+              </button>
+            </div>
 
-                <div className="mt-6 flex items-center gap-5 text-[11px] font-mono text-neutral-500">
-                  <span className="inline-flex items-center gap-1.5">
-                    <span className="h-1 w-1 rounded-full bg-[#CDFF00]" />
-                    15 min avg launch
-                  </span>
-                  <span className="inline-flex items-center gap-1.5">
-                    <span className="h-1 w-1 rounded-full bg-neutral-600" />
-                    OpenZeppelin audited
-                  </span>
-                  <span className="hidden sm:inline-flex items-center gap-1.5">
-                    <span className="h-1 w-1 rounded-full bg-neutral-600" />
-                    Shared book
-                  </span>
-                </div>
-              </div>
-
-              {/* Right-column side annotation */}
-              <div className="hidden md:block col-span-5 pl-6 border-l border-neutral-900">
-                <div className="eyebrow mb-3">In this issue</div>
-                <ol className="space-y-2.5 text-[13px] text-neutral-400">
-                  {[
-                    'The docker — a live operator',
-                    'A shared book across every site',
-                    'Who this is for',
-                    'Inside the protocol',
-                    'Pricing with intent'
-                  ].map((line, i) => (
-                    <li
-                      key={line}
-                      className="group flex items-baseline gap-3 cursor-default"
-                    >
-                      <span className="font-mono text-[10px] text-neutral-600 tabular">
-                        0{i + 1}
-                      </span>
-                      <span className="group-hover:text-white transition-colors">
-                        {line}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+            <div className="mt-5 flex items-center gap-5 text-[11px] font-mono text-neutral-500 fade-slide-up" style={{ animationDelay: '0.65s' }}>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1 w-1 rounded-full bg-[#CDFF00]" />
+                15 min avg launch
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1 w-1 rounded-full bg-neutral-600" />
+                OpenZeppelin audited
+              </span>
+              <span className="hidden sm:inline-flex items-center gap-1.5">
+                <span className="h-1 w-1 rounded-full bg-neutral-600" />
+                Shared book
+              </span>
             </div>
           </div>
 
           {/* Right column — "The Docker" card */}
-          <div className="col-span-12 lg:col-span-5 xl:col-span-4 lg:pt-4">
+          <div className="col-span-12 lg:col-span-5">
             <DockerCard />
           </div>
         </div>
       </div>
 
-      {/* Bottom ticker — horizontal marquee */}
-      <div className="relative mt-16 md:mt-24 border-y border-neutral-900 bg-neutral-950/40 overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        <div className="flex marquee py-4">
+      {/* Bottom ticker */}
+      <div className="relative mt-14 md:mt-20 border-y border-neutral-900 bg-neutral-950/40 overflow-hidden">
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div className="flex marquee py-3">
           {[...TICKERS, ...TICKERS, ...TICKERS].map((t, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 px-6 whitespace-nowrap text-[12px] font-mono"
+              className="flex items-center gap-2.5 px-5 whitespace-nowrap text-[11.5px] font-mono"
             >
               <span className="text-neutral-500 tracking-wider">{t.sym}</span>
               <span className="text-white tabular">{(t.px * 100).toFixed(0)}¢</span>
               <span className={t.up ? 'tick-up' : 'tick-down'}>{t.ch}</span>
-              <span className="text-neutral-800 px-3">·</span>
+              <span className="text-neutral-800 px-2">·</span>
             </div>
           ))}
         </div>
@@ -197,7 +157,6 @@ export function Hero() {
   )
 }
 
-// CSS-based reveal — runs on mount, no motion dependency
 function RevealLine({
   children,
   delay = 0
@@ -210,7 +169,7 @@ function RevealLine({
       <span
         className="block"
         style={{
-          animation: 'reveal-up 1s cubic-bezier(0.22, 1, 0.36, 1) both',
+          animation: 'reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both',
           animationDelay: `${0.05 + delay}s`
         }}
       >
@@ -230,11 +189,11 @@ function DockerCard() {
 
   return (
     <div className="relative">
-      <div className="absolute -inset-6 bg-[#CDFF00]/10 blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute -inset-4 bg-[#CDFF00]/8 blur-3xl rounded-full pointer-events-none" />
 
-      <div className="relative paper-card rounded-md overflow-hidden">
+      <div className="relative paper-card rounded-md overflow-hidden shadow-2xl">
         {/* Browser top */}
-        <div className="flex items-center gap-2 px-3.5 py-2.5 border-b border-neutral-900">
+        <div className="flex items-center gap-2 px-3 py-2 border-b border-neutral-900">
           <div className="flex gap-1.5">
             <span className="h-2.5 w-2.5 rounded-full bg-neutral-800 hover:bg-red-500/70 transition-colors" />
             <span className="h-2.5 w-2.5 rounded-full bg-neutral-800 hover:bg-yellow-500/70 transition-colors" />
@@ -247,18 +206,18 @@ function DockerCard() {
             </div>
           </div>
           <span className="text-[10px] font-mono text-neutral-600 tabular">
-            {String(tab + 1).padStart(2, '0')} / {MARKETS.length}
+            {String(tab + 1).padStart(2, '0')}/{MARKETS.length}
           </span>
         </div>
 
         {/* Card content */}
-        <div className="p-5 md:p-6 min-h-[300px]">
-          <div className="flex items-center justify-between mb-5">
+        <div className="p-4 md:p-5">
+          <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <div className="h-6 w-6 rounded-full bg-gradient-to-br from-[#CDFF00] to-[#9ec800] flex items-center justify-center text-[10px] font-bold text-neutral-950">
+              <div className="h-5 w-5 rounded-full bg-gradient-to-br from-[#CDFF00] to-[#9ec800] flex items-center justify-center text-[9px] font-bold text-neutral-950">
                 K
               </div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500">
                 /{market.ch}
               </span>
             </div>
@@ -269,16 +228,16 @@ function DockerCard() {
           </div>
 
           <div key={tab} className="fade-in-soft">
-            <div className="font-display text-[22px] leading-[1.15] text-white tracking-tight text-balance">
+            <div className="font-display text-[19px] md:text-[20px] leading-[1.15] text-white tracking-tight text-balance">
               {market.q}
             </div>
 
-            <div className="mt-5 space-y-2.5">
+            <div className="mt-4 space-y-2">
               <Bar label="YES" pct={market.yes} lime />
               <Bar label="NO" pct={100 - market.yes} />
             </div>
 
-            <div className="mt-5 pt-4 border-t border-neutral-900 flex items-center justify-between text-[11px] font-mono">
+            <div className="mt-4 pt-3 border-t border-neutral-900 flex items-center justify-between text-[11px] font-mono">
               <span className="text-neutral-500">
                 Volume <span className="text-white">{market.vol}</span>
               </span>
@@ -287,18 +246,18 @@ function DockerCard() {
               </span>
             </div>
 
-            <div className="mt-4 grid grid-cols-2 gap-2">
-              <button className="rounded-sm bg-[#CDFF00] text-neutral-950 text-[12px] font-semibold py-2 hover:bg-[#D4FF4A] press">
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <button className="rounded-sm bg-[#CDFF00] text-neutral-950 text-[11.5px] font-semibold py-2 hover:bg-[#D4FF4A] press">
                 Buy Yes · {market.yes}¢
               </button>
-              <button className="rounded-sm border border-neutral-800 bg-neutral-950/50 text-neutral-200 text-[12px] font-semibold py-2 hover:border-neutral-700">
+              <button className="rounded-sm border border-neutral-800 bg-neutral-950/50 text-neutral-200 text-[11.5px] font-semibold py-2 hover:border-neutral-700">
                 Buy No · {100 - market.yes}¢
               </button>
             </div>
           </div>
         </div>
 
-        <div className="flex gap-1 px-5 pb-4">
+        <div className="flex gap-1 px-4 pb-3">
           {MARKETS.map((_, i) => (
             <button
               key={i}
@@ -311,9 +270,9 @@ function DockerCard() {
         </div>
       </div>
 
-      {/* Annotation — hand-drawn style */}
-      <div className="hidden md:flex absolute -left-16 lg:-left-20 top-12 flex-col items-end gap-1.5">
-        <svg width="80" height="40" viewBox="0 0 80 40" fill="none">
+      {/* Hand-drawn arrow annotation */}
+      <div className="hidden xl:flex absolute -left-14 top-8 flex-col items-end gap-1">
+        <svg width="64" height="32" viewBox="0 0 80 40" fill="none">
           <path
             d="M2 8 Q 30 8, 50 20 T 78 34"
             stroke="#CDFF00"
@@ -341,7 +300,7 @@ function Bar({
 }) {
   return (
     <div>
-      <div className="flex items-baseline justify-between text-[11px] font-mono mb-1">
+      <div className="flex items-baseline justify-between text-[10.5px] font-mono mb-1">
         <span className={lime ? 'text-[#CDFF00]' : 'text-neutral-500'}>{label}</span>
         <span className="text-white tabular">{pct}¢</span>
       </div>

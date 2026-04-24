@@ -84,52 +84,54 @@ export function DockerSequence() {
     <section
       id="protocol"
       ref={wrapRef}
-      className="relative bg-neutral-950"
-      style={{ height: `${STAGES.length * 120}vh` }}
+      className="relative bg-neutral-950 border-t border-neutral-900"
+      style={{ height: `${STAGES.length * 90}vh` }}
     >
-      {/* Section mark */}
-      <div className="absolute top-0 left-0 right-0">
-        <div className="mx-auto max-w-[1440px] px-6 lg:px-20 pt-12">
-          <div className="flex items-center justify-between">
-            <div className="section-mark flex items-center gap-3">
-              <span>01</span>
-              <span className="w-8 h-px bg-neutral-800" />
-              <span>The Docker</span>
-            </div>
-            <div className="eyebrow hidden md:block text-neutral-600">
-              Scroll ↓ to unfold
+      {/* Pinned viewport */}
+      <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
+        <div className="absolute inset-0 editorial-grid opacity-40 pointer-events-none" />
+
+        {/* Section header — compact, inside pinned view */}
+        <div className="relative pt-10 md:pt-12">
+          <div className="mx-auto max-w-[1400px] px-5 lg:px-20">
+            <div className="flex items-center justify-between">
+              <div className="section-mark flex items-center gap-2.5">
+                <span>01</span>
+                <span className="w-6 h-px bg-neutral-800" />
+                <span>The Docker</span>
+              </div>
+              <div className="eyebrow hidden md:block text-neutral-600">
+                Scroll ↓ to unfold
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Pinned viewport */}
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 editorial-grid opacity-40 pointer-events-none" />
+        <div className="relative flex-1 flex items-center">
+          <div className="w-full mx-auto max-w-[1400px] px-5 lg:px-20 pb-10">
+            <div className="grid grid-cols-12 gap-6 md:gap-10 items-center">
+              {/* Left — rotating editorial copy */}
+              <div className="col-span-12 lg:col-span-6 order-2 lg:order-1">
+                <StageCopy stages={STAGES} active={activeStage} />
 
-        <div className="relative w-full mx-auto max-w-[1440px] px-6 lg:px-20">
-          <div className="grid grid-cols-12 gap-6 md:gap-10 items-center">
-            {/* Left — rotating editorial copy */}
-            <div className="col-span-12 lg:col-span-6 order-2 lg:order-1">
-              <StageCopy stages={STAGES} active={activeStage} />
-
-              {/* Stage indicator */}
-              <div className="mt-10 flex items-center gap-4">
-                <div className="h-px flex-1 bg-neutral-800 relative overflow-hidden">
-                  <div
-                    className="absolute left-0 top-0 bottom-0 bg-[#CDFF00] transition-all duration-300"
-                    style={{ width: `${progress * 100}%` }}
-                  />
+                {/* Stage indicator */}
+                <div className="mt-7 flex items-center gap-4">
+                  <div className="h-px flex-1 bg-neutral-800 relative overflow-hidden">
+                    <div
+                      className="absolute left-0 top-0 bottom-0 bg-[#CDFF00] transition-all duration-300"
+                      style={{ width: `${progress * 100}%` }}
+                    />
+                  </div>
+                  <span className="font-mono text-[11px] text-neutral-500 tabular">
+                    {String(activeStage + 1).padStart(2, '0')} / {String(STAGES.length).padStart(2, '0')}
+                  </span>
                 </div>
-                <span className="font-mono text-[11px] text-neutral-500 tabular">
-                  {String(activeStage + 1).padStart(2, '0')} / {String(STAGES.length).padStart(2, '0')}
-                </span>
               </div>
-            </div>
 
-            {/* Right — the Docker */}
-            <div className="col-span-12 lg:col-span-6 order-1 lg:order-2">
-              <Docker stage={activeStage} progress={progress} />
+              {/* Right — the Docker */}
+              <div className="col-span-12 lg:col-span-6 order-1 lg:order-2">
+                <Docker stage={activeStage} progress={progress} />
+              </div>
             </div>
           </div>
         </div>
@@ -146,7 +148,7 @@ function StageCopy({
   active: number
 }) {
   return (
-    <div className="relative min-h-[360px]">
+    <div className="relative min-h-[260px] md:min-h-[280px]">
       {stages.map((s, i) => {
         const isActive = i === active
         return (
@@ -158,23 +160,23 @@ function StageCopy({
               transform: isActive
                 ? 'translateY(0)'
                 : i < active
-                ? 'translateY(-40px)'
-                : 'translateY(40px)',
-              filter: isActive ? 'blur(0)' : 'blur(6px)',
+                ? 'translateY(-30px)'
+                : 'translateY(30px)',
+              filter: isActive ? 'blur(0)' : 'blur(5px)',
               pointerEvents: isActive ? 'auto' : 'none'
             }}
           >
-            <div className="eyebrow mb-3 text-[#CDFF00]/80">
+            <div className="eyebrow mb-2.5 text-[#CDFF00]/80">
               {s.number} · {s.kicker}
             </div>
-            <h3 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.02em] text-white text-balance">
+            <h3 className="font-display text-[36px] md:text-[44px] lg:text-[52px] leading-[0.98] tracking-[-0.02em] text-white text-balance">
               {s.headline}
             </h3>
-            <p className="mt-6 text-base md:text-lg text-neutral-400 max-w-xl leading-relaxed">
+            <p className="mt-4 text-[14.5px] md:text-base text-neutral-400 max-w-lg leading-relaxed">
               {s.body}
             </p>
-            <div className="mt-6 inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-neutral-500">
-              <span className="h-1 w-8 bg-[#CDFF00]" />
+            <div className="mt-4 inline-flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-widest text-neutral-500">
+              <span className="h-px w-6 bg-[#CDFF00]" />
               {s.annotation}
             </div>
           </div>
@@ -182,11 +184,11 @@ function StageCopy({
       })}
       {/* Placeholder to reserve height */}
       <div className="invisible">
-        <div className="eyebrow mb-3">&nbsp;</div>
-        <h3 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.95]">
+        <div className="eyebrow mb-2.5">&nbsp;</div>
+        <h3 className="font-display text-[36px] md:text-[44px] lg:text-[52px] leading-[0.98]">
           Liquidity arrives before your first user does.
         </h3>
-        <p className="mt-6 text-base md:text-lg">Every trade routes a cut to your wallet.</p>
+        <p className="mt-4 text-[14.5px] md:text-base">Every trade routes a cut to your wallet.</p>
       </div>
     </div>
   )
@@ -237,7 +239,7 @@ function Docker({
         </div>
 
         {/* Content */}
-        <div className="relative min-h-[340px] md:min-h-[420px]">
+        <div className="relative min-h-[300px] md:min-h-[340px]">
           <StageVisual stage={stage} />
         </div>
 
@@ -296,7 +298,7 @@ function FlyingLabel({
 
 function StageVisual({ stage }: { stage: number }) {
   return (
-    <div className="relative h-full min-h-[340px] md:min-h-[420px] p-5 md:p-6">
+    <div className="relative h-full min-h-[300px] md:min-h-[340px] p-4 md:p-5">
       <div key={`v-${stage}`} className="h-full fade-slide-up">
         {stage === 0 && <EmptyCanvas />}
         {stage === 1 && <BookFills />}
