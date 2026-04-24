@@ -1,28 +1,36 @@
 import Link from 'next/link'
-import { Github, Twitter, MessageCircle, ShieldCheck } from 'lucide-react'
+import { Github, Twitter, MessageCircle } from 'lucide-react'
 import { Logo } from './logo'
 
 const COLUMNS: { label: string; items: { label: string; href: string }[] }[] = [
   {
-    label: 'Product',
+    label: 'Protocol',
     items: [
-      { label: 'Markets', href: '/#product' },
-      { label: 'Shared liquidity', href: '/#liquidity' },
-      { label: 'Affiliates', href: '/#affiliates' },
-      { label: 'Bot SDKs', href: '/#bots' },
-      { label: 'White label', href: '/#whitelabel' },
-      { label: 'Pricing', href: '/pricing' }
+      { label: 'Shared book', href: '/#protocol-inside' },
+      { label: 'Audited contracts', href: '/#protocol-inside' },
+      { label: 'Bot SDKs', href: '/docs/sdk' },
+      { label: 'Affiliate rail', href: '/#protocol-inside' },
+      { label: 'Pricing', href: '/#pricing' }
+    ]
+  },
+  {
+    label: 'Ecosystem',
+    items: [
+      { label: 'For creators', href: '/#ecosystem' },
+      { label: 'For market makers', href: '/#ecosystem' },
+      { label: 'For exchanges', href: '/#ecosystem' },
+      { label: 'For LPs', href: '/#ecosystem' },
+      { label: 'Community', href: '/community' }
     ]
   },
   {
     label: 'Developers',
     items: [
       { label: 'Docs', href: '/docs' },
-      { label: 'API reference', href: '/docs/api' },
+      { label: 'Quickstart', href: '/docs/quickstart' },
+      { label: 'API reference', href: '/docs/sdk' },
       { label: 'Blog', href: '/blog' },
-      { label: 'Changelog', href: '/changelog' },
-      { label: 'Components', href: '/docs/components' },
-      { label: 'Status', href: '/status' }
+      { label: 'GitHub', href: 'https://github.com/khaleel737/kuest-website' }
     ]
   },
   {
@@ -30,64 +38,63 @@ const COLUMNS: { label: string; items: { label: string; href: string }[] }[] = [
     items: [
       { label: 'About', href: '/about' },
       { label: 'Brand', href: '/brand' },
-      { label: 'Jobs', href: '/jobs' },
-      { label: 'Enterprise', href: '/enterprise' },
-      { label: 'The Protocol', href: '/protocol' },
-      { label: 'Contact', href: 'mailto:hello@kuest.com' }
-    ]
-  },
-  {
-    label: 'Legal',
-    items: [
       { label: 'Terms', href: '/legal/terms' },
       { label: 'Privacy', href: '/legal/privacy' },
-      { label: 'Security', href: '/security' },
-      { label: 'Risk disclosure', href: '/legal/risk' }
+      { label: 'Contact', href: 'mailto:hello@kuest.com' }
     ]
   }
 ]
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-neutral-950">
-      {/* Trust bar */}
-      <div className="border-b border-white/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-wrap items-center justify-center gap-6 text-xs text-neutral-400">
-          <TrustBadge>OpenZeppelin audited</TrustBadge>
-          <TrustBadge>Polymarket-derived contracts</TrustBadge>
-          <TrustBadge>SOC 2 Type II ready</TrustBadge>
-          <TrustBadge>On-chain settlement</TrustBadge>
-        </div>
+    <footer className="relative border-t border-neutral-900 bg-neutral-950">
+      {/* Masthead-style top rule */}
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-20">
+        <div className="dotted-line h-[1px]" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-2 md:grid-cols-6 gap-8">
-        <div className="col-span-2 space-y-4">
-          <Logo />
-          <p className="text-sm text-neutral-400 max-w-xs">
-            The no-code platform to launch your own branded prediction market in 15 minutes.
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-20 py-14 grid grid-cols-12 gap-8">
+        <div className="col-span-12 md:col-span-4 space-y-5">
+          <div className="flex items-center gap-2">
+            <Logo />
+            <span className="font-display text-[22px] leading-none text-white">
+              kuest
+            </span>
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#CDFF00]" />
+          </div>
+          <p className="text-sm text-neutral-400 max-w-xs leading-relaxed">
+            A protocol for prediction markets. Launch a branded site in fifteen
+            minutes. Inherit shared liquidity. Pay creators on-chain.
           </p>
           <div className="flex items-center gap-2">
-            <SocialLink href="https://github.com/kuest" label="GitHub">
-              <Github className="h-4 w-4" />
+            <SocialLink href="https://github.com/khaleel737/kuest-website" label="GitHub">
+              <Github className="h-3.5 w-3.5" />
             </SocialLink>
             <SocialLink href="https://x.com/kuest" label="X / Twitter">
-              <Twitter className="h-4 w-4" />
+              <Twitter className="h-3.5 w-3.5" />
             </SocialLink>
             <SocialLink href="https://discord.gg/kuest" label="Discord">
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-3.5 w-3.5" />
             </SocialLink>
+          </div>
+
+          <div className="inline-flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950/60 px-3 py-1.5 text-[11px] font-mono text-neutral-500">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#CDFF00] animate-pulse" />
+            All systems operational
           </div>
         </div>
 
         {COLUMNS.map((col) => (
-          <div key={col.label} className="col-span-1">
-            <h4 className="text-sm font-semibold text-white mb-3">{col.label}</h4>
-            <ul className="space-y-2">
+          <div key={col.label} className="col-span-6 md:col-span-2">
+            <h4 className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-4">
+              {col.label}
+            </h4>
+            <ul className="space-y-2.5">
               {col.items.map((item) => (
-                <li key={item.href}>
+                <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-neutral-400 hover:text-[#CDFF00] transition-colors"
+                    className="text-[13px] text-neutral-400 hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -98,25 +105,27 @@ export function Footer() {
         ))}
       </div>
 
-      <div className="border-t border-white/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-500">
-          <p>© {new Date().getFullYear()} Kuest Labs. All rights reserved.</p>
-          <p className="flex items-center gap-2">
-            <ShieldCheck className="h-3.5 w-3.5 text-[#CDFF00]" />
-            Built on audited, open-source smart contracts.
-          </p>
+      {/* Colophon strip */}
+      <div className="border-t border-neutral-900">
+        <div className="mx-auto max-w-[1440px] px-6 lg:px-20 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[11px] font-mono text-neutral-500">
+          <div className="flex items-center gap-3">
+            <span>© {new Date().getFullYear()} Kuest Labs</span>
+            <span className="text-neutral-700">·</span>
+            <span>Set in Instrument Serif &amp; Inter</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span>OpenZeppelin audited</span>
+            <span className="text-neutral-700">·</span>
+            <span>v1.2.4</span>
+            <span className="text-neutral-700">·</span>
+            <span className="inline-flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#CDFF00]" />
+              Made for market makers, creators, and venues
+            </span>
+          </div>
         </div>
       </div>
     </footer>
-  )
-}
-
-function TrustBadge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-2">
-      <span className="h-1.5 w-1.5 rounded-full bg-[#CDFF00]" />
-      {children}
-    </span>
   )
 }
 
@@ -135,7 +144,7 @@ function SocialLink({
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/10 text-neutral-300 hover:text-[#CDFF00] hover:border-[#CDFF00]/30 transition-colors"
+      className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-neutral-800 text-neutral-400 hover:text-[#CDFF00] hover:border-[#CDFF00]/30 transition-colors"
     >
       {children}
     </a>

@@ -1,18 +1,22 @@
 import { Hero } from '@/components/site/hero'
-import { ThreeSteps } from '@/components/site/three-steps'
-import { FeatureSplit } from '@/components/site/feature-split'
-import { FrameworksGrid } from '@/components/site/frameworks-grid'
-import { Testimonials } from '@/components/site/testimonials'
+import { DockerSequence } from '@/components/site/docker-sequence'
+import { Manifesto } from '@/components/site/manifesto'
+import { Ecosystem } from '@/components/site/ecosystem'
+import { ProtocolScroll } from '@/components/site/protocol-scroll'
+import { BigNumbers } from '@/components/site/big-numbers'
+import { Pricing } from '@/components/site/pricing'
 import { FinalCta } from '@/components/site/final-cta'
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <ThreeSteps />
-      <FeatureSplit />
-      <FrameworksGrid />
-      <Testimonials />
+      <DockerSequence />
+      <Manifesto />
+      <Ecosystem />
+      <ProtocolScroll />
+      <BigNumbers />
+      <Pricing />
       <FinalCta />
     </>
   )
